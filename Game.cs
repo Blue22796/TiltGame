@@ -39,12 +39,14 @@ namespace Tilt_Game
             return new Board(NewState);
         }
         #endregion
-        //Returns String representation of board
+       
         public String toString() 
         {
+            //Returns String representation of board
             return null;
         }
 
+        #region Ignore
         public override bool Equals(object? obj)
         {
             return this.toString().Equals(obj);
@@ -54,6 +56,7 @@ namespace Tilt_Game
         {
             return this.toString().GetHashCode();
         }
+        #endregion
     }
 
     public class Player 
@@ -77,7 +80,7 @@ namespace Tilt_Game
     { 
         //public GUIComponent Representation(Board board)
         //{
-        //
+        //Generate a grid GUI Component representing the current board configuration
         //}
     }
     

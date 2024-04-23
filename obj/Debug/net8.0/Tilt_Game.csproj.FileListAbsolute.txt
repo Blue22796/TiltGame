@@ -1,0 +1,14 @@
+C:\Users\user\Desktop\Tilt_Game\bin\Debug\net8.0\Tilt_Game.exe
+C:\Users\user\Desktop\Tilt_Game\bin\Debug\net8.0\Tilt_Game.deps.json
+C:\Users\user\Desktop\Tilt_Game\bin\Debug\net8.0\Tilt_Game.runtimeconfig.json
+C:\Users\user\Desktop\Tilt_Game\bin\Debug\net8.0\Tilt_Game.dll
+C:\Users\user\Desktop\Tilt_Game\bin\Debug\net8.0\Tilt_Game.pdb
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\Tilt_Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\Tilt_Game.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\Tilt_Game.AssemblyInfo.cs
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\Tilt_Game.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\Tilt_Game.dll
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\refint\Tilt_Game.dll
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\Tilt_Game.pdb
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\Tilt_Game.genruntimeconfig.cache
+C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\ref\Tilt_Game.dll

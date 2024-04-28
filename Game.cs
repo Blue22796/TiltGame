@@ -24,6 +24,36 @@ namespace Tilt_Game
         #region Tilting Logic
         public Board TiltRight() {
             char[][] NewState = (char[][]) state.Clone();
+            int n= NewState.GetLength(0);
+            int m= NewState.GetLength(1);
+            var toGo = (i: -1, j: -1);
+            bool found = false;
+            for (int i = 0; i < n; i++)
+            {
+                 found  = false;
+                for (int j=m-1;j>= 0; j--)
+                {
+                    if (NewState[i][j] == '.' && found == false)
+                    {
+                        toGo = (i: i, j: j);
+                        found = true;
+                    }
+                    else if (NewState[i][j] == '#')
+                        found = false;
+                    else
+                    {
+                        if (found==true)
+                        {
+                            NewState[toGo.i][toGo.j] = 'o';
+                            NewState[i][j] = '.';
+                            toGo.j--;
+
+                        }
+                        
+                    }
+                }
+
+            }
             return new Board(NewState);
         }
         public Board TilitDown() {
@@ -35,7 +65,37 @@ namespace Tilt_Game
             return new Board(NewState);
         }
         public Board TiltLeft() {
-            char[][] NewState = (char[][]) state.Clone();
+            char[][] NewState = (char[][])state.Clone();
+            int n = NewState.GetLength(0);
+            int m = NewState.GetLength(1);
+            var toGo = (i: -1, j: -1);
+            bool found = false;
+            for (int i = 0; i < n; i++)
+            {
+                found = false;
+                for (int j = 0; j < m; j++)
+                {
+                    if (NewState[i][j] == '.' && found == false)
+                    {
+                        toGo = (i: i, j: j);
+                        found = true;
+                    }
+                    else if (NewState[i][j] == '#')
+                        found = false;
+                    else
+                    {
+                        if (found == true)
+                        {
+                            NewState[toGo.i][toGo.j] = 'o';
+                            NewState[i][j] = '.';
+                            toGo.j++;
+
+                        }
+
+                    }
+                }
+
+            }
             return new Board(NewState);
         }
         #endregion

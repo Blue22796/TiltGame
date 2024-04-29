@@ -40,7 +40,7 @@ namespace Tilt_Game
                     }
                     else if (NewState[i][j] == '#')
                         found = false;
-                    else
+                    else if (NewState[i][j] =='o')
                     {
                         if (found==true)
                         {
@@ -82,7 +82,7 @@ namespace Tilt_Game
                     }
                     else if (NewState[i][j] == '#')
                         found = false;
-                    else
+                    else if(NewState[i][j] == 'o')
                     {
                         if (found == true)
                         {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame\\Tilt_Game.csproj": {}
+    "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame1\\Tilt_Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame\\Tilt_Game.csproj": {
+    "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame1\\Tilt_Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame\\Tilt_Game.csproj",
+        "projectUniqueName": "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame1\\Tilt_Game.csproj",
         "projectName": "Tilt_Game",
-        "projectPath": "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame\\Tilt_Game.csproj",
+        "projectPath": "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame1\\Tilt_Game.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame\\obj\\",
+        "outputPath": "C:\\Users\\LENOVO\\Source\\Repos\\TiltGame1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",

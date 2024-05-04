@@ -1,0 +1,24 @@
+Solvable
+Min number of moves: 3
+Sequence of moves: right, left, up
+State 1:
+# # . . . 
+. o # . . 
+. . o . . 
+. . . . . 
+# # # . . 
+
+State 2:
+# # . . . 
+. . # . . 
+. . . . . 
+. o o . . 
+# # # . . 
+
+State 3:
+# # . . . 
+. . # . . 
+. . . . . 
+. . . o o 
+# # # . . 
+

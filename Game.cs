@@ -9,13 +9,16 @@ namespace Tilt_Game
     public class Board
     {
 
-        char[][] state;
+        public char[][] state;
+        int n;
+        int x;
+        int y;
 
         public Board(char[][] state)
         {
             this.state = state;
         }
-
+       
         
         public Board(String state) { 
             //Convert String to 2d array
@@ -157,13 +160,14 @@ namespace Tilt_Game
             return new Board(NewState);
         }
         #endregion
-       
+        
+
         public String toString() 
         {
             //Returns String representation of board
             return null;
         }
-
+       
         #region Ignore
         public override bool Equals(object? obj)
         {
@@ -177,6 +181,8 @@ namespace Tilt_Game
         #endregion
     }
 
+
+
     public class Player 
     {
         List<Board> Sequence = new List<Board>();
@@ -185,7 +191,99 @@ namespace Tilt_Game
         public List<Board> Solve(char[][] initialBoard, int targetX, int targetY)
         {
             //Generate Sequence starting with initialBoard
+            string[] moves = new string[] { "right", "left", "up"};
+            Write(InitializeStates(), "Solvable", moves);
             return Sequence;
+        }
+        //for testing write method 
+        public List<Board> InitializeStates()
+        {
+            // Initialize a list to store Board objects representing the states
+            List<Board> States = new List<Board>();
+
+            // Initialize the first state
+            char[][] state1 = new char[][]
+            {
+            new char[] { '#', '#', '.', '.', '.' },
+            new char[] { '.', 'o', '#', '.', '.' },
+            new char[] { '.', '.', 'o', '.', '.' },
+            new char[] { '.', '.', '.', '.', '.' },
+            new char[] { '#', '#', '#', '.', '.' }
+            };
+
+            // Create a Board object for the first state and add it to the list
+            States.Add(new Board(state1));
+
+            // Initialize the second state
+            char[][] state2 = new char[][]
+            {
+            new char[] { '#', '#', '.', '.', '.' },
+            new char[] { '.', '.', '#', '.', '.' },
+            new char[] { '.', '.', '.', '.', '.' },
+            new char[] { '.', 'o', 'o', '.', '.' },
+            new char[] { '#', '#', '#', '.', '.' }
+            };
+
+            // Create a Board object for the second state and add it to the list
+            States.Add(new Board(state2));
+
+            // Initialize the third state
+            char[][] state3 = new char[][]
+            {
+            new char[] { '#', '#', '.', '.', '.' },
+            new char[] { '.', '.', '#', '.', '.' },
+            new char[] { '.', '.', '.', '.', '.' },
+            new char[] { '.', '.', '.', 'o', 'o' },
+            new char[] { '#', '#', '#', '.', '.' }
+            };
+
+            // Create a Board object for the third state and add it to the list
+            States.Add(new Board(state3));
+
+            return States;
+        }
+
+        public void Write(List<Board> States, string solveState, string[] moves)
+        {
+            try
+            {
+                
+                string filePath = "output.txt";
+
+
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+
+                    writer.WriteLine(solveState);
+
+
+                    writer.WriteLine("Min number of moves: " + moves.Length);
+
+
+                    writer.WriteLine("Sequence of moves: " + string.Join(", ", moves));
+
+
+                    for (int stateIndex = 0; stateIndex < States.Count; stateIndex++)
+                    {
+                        writer.WriteLine("State " + (stateIndex + 1) + ":");
+                        char[][] currentState = States[stateIndex].state;
+                        for (int i = 0; i < currentState.Length; i++)
+                        {
+                            for (int j = 0; j < currentState[i].Length; j++)
+                            {
+                                writer.Write(currentState[i][j] + " ");
+                            }
+                            writer.WriteLine();
+                        }
+                        writer.WriteLine();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("An error occurred while writing to the file: " + ex.Message);
+            }
         }
 
         public Boolean IsWinning(Board board) {

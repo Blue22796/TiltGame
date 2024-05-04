@@ -1,24 +1,24 @@
 Solvable
-Min number of moves: 3
-Sequence of moves: right, left, up
-State 1:
-# # . . . 
-. o # . . 
-. . o . . 
-. . . . . 
-# # # . . 
+Min number of moves: 2
+Sequence of moves: down, right,
+Initial
+#, #, ., ., .
+., o, #, ., .
+., ., o, ., .
+., ., ., ., .
+#, #, #, ., .
 
-State 2:
-# # . . . 
-. . # . . 
-. . . . . 
-. o o . . 
-# # # . . 
+down
+#, #, ., ., .
+., ., #, ., .
+., ., ., ., .
+., o, o, ., .
+#, #, #, ., .
 
-State 3:
-# # . . . 
-. . # . . 
-. . . . . 
-. . . o o 
-# # # . . 
+right
+#, #, ., ., .
+., ., #, ., .
+., ., ., ., .
+., ., ., o, o
+#, #, #, ., .
 

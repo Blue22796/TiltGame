@@ -191,7 +191,7 @@ namespace Tilt_Game
         public List<Board> Solve(char[][] initialBoard, int targetX, int targetY)
         {
             //Generate Sequence starting with initialBoard
-            string[] moves = new string[] { "right", "left", "up"};
+            string[] moves = new string[] { "Initial", "down", "right"};
             Write(InitializeStates(), "Solvable", moves);
             return Sequence;
         }
@@ -256,22 +256,32 @@ namespace Tilt_Game
 
                     writer.WriteLine(solveState);
 
+                    if(solveState == "Unsolvable")
+                    {
+                        return;
+                    }
+                    writer.WriteLine("Min number of moves: " + (moves.Length - 1 ));
 
-                    writer.WriteLine("Min number of moves: " + moves.Length);
 
-
-                    writer.WriteLine("Sequence of moves: " + string.Join(", ", moves));
+                    writer.WriteLine("Sequence of moves: " + string.Join(", ", moves.Skip(1)) + ",");
 
 
                     for (int stateIndex = 0; stateIndex < States.Count; stateIndex++)
                     {
-                        writer.WriteLine("State " + (stateIndex + 1) + ":");
+                        writer.WriteLine(moves[stateIndex]);
                         char[][] currentState = States[stateIndex].state;
                         for (int i = 0; i < currentState.Length; i++)
                         {
                             for (int j = 0; j < currentState[i].Length; j++)
                             {
-                                writer.Write(currentState[i][j] + " ");
+                                if(j != currentState[i].Length-1)
+                                {
+                                    writer.Write(currentState[i][j] + ", ");
+                                }
+                                else
+                                {
+                                    writer.Write(currentState[i][j] );
+                                }
                             }
                             writer.WriteLine();
                         }

@@ -57,11 +57,69 @@ namespace Tilt_Game
             return new Board(NewState);
         }
         public Board TilitDown() {
-            char[][] NewState = (char[][]) state.Clone();
+            char[][] NewState = (char[][])state.Clone();
+            int n = NewState.GetLength(0);
+            int m = NewState.GetLength(1);
+            var toGo = (i: -1, j: -1);
+            bool found = false;
+            for (int i = n - 1; i >= 0; i--)
+            {
+                found = false;
+                for (int j = 0; j < m; j++)
+                {
+                    if (NewState[i][j] == '.' && found == false)
+                    {
+                        toGo = (i: i, j: j);
+                        found = true;
+                    }
+                    else if (NewState[i][j] == '#')
+                    {
+                        found = false;
+                    }
+                    else if (NewState[i][j] == 'o')
+                    {
+                        if (found == true)
+                        {
+                            NewState[toGo.i][toGo.j] = 'o';
+                            NewState[i][j] = '.';
+                            toGo.i++;
+                        }
+                    }
+                }
+            }
             return new Board(NewState);
         }
         public Board TiltUp() {
-            char[][] NewState = (char[][]) state.Clone();
+            char[][] NewState = (char[][])state.Clone();
+            int n = NewState.GetLength(0);
+            int m = NewState.GetLength(1);
+            var toGo = (i: -1, j: -1);
+            bool found = false;
+            for (int i = 0; i < n; i++)
+            {
+                found = false;
+                for (int j = 0; j < m; j++)
+                {
+                    if (NewState[i][j] == '.' && found == false)
+                    {
+                        toGo = (i: i, j: j);
+                        found = true;
+                    }
+                    else if (NewState[i][j] == '#')
+                    {
+                        found = false;
+                    }
+                    else if (NewState[i][j] == 'o')
+                    {
+                        if (found == true)
+                        {
+                            NewState[toGo.i][toGo.j] = 'o';
+                            NewState[i][j] = '.';
+                            toGo.i--;
+                        }
+                    }
+                }
+            }
             return new Board(NewState);
         }
         public Board TiltLeft() {

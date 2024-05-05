@@ -10,13 +10,14 @@ namespace Tilt_Game
     {
 
         public char[][] state;
+        public Board parent;
+        public String move;
         int n;
-        int x;
-        int y;
 
         public Board(char[][] state)
         {
             this.state = state;
+            n = state.Length;
         }
        
         
@@ -27,14 +28,12 @@ namespace Tilt_Game
         #region Tilting Logic
         public Board TiltRight() {
             char[][] NewState = (char[][]) state.Clone();
-            int n= NewState.GetLength(0);
-            int m= NewState.GetLength(1);
             var toGo = (i: -1, j: -1);
             bool found = false;
             for (int i = 0; i < n; i++)
             {
                  found  = false;
-                for (int j=m-1;j>= 0; j--)
+                for (int j=n-1;j>= 0; j--)
                 {
                     if (NewState[i][j] == '.' && found == false)
                     {
@@ -57,18 +56,19 @@ namespace Tilt_Game
                 }
 
             }
-            return new Board(NewState);
+            var Result = new Board(NewState);
+            Result.parent = this;
+            Result.move = "Right";
+            return Result;
         }
-        public Board TilitDown() {
+        public Board TiltDown() {
             char[][] NewState = (char[][])state.Clone();
-            int n = NewState.GetLength(0);
-            int m = NewState.GetLength(1);
             var toGo = (i: -1, j: -1);
             bool found = false;
             for (int i = n - 1; i >= 0; i--)
             {
                 found = false;
-                for (int j = 0; j < m; j++)
+                for (int j = 0; j < n; j++)
                 {
                     if (NewState[i][j] == '.' && found == false)
                     {
@@ -90,18 +90,19 @@ namespace Tilt_Game
                     }
                 }
             }
-            return new Board(NewState);
+            var Result = new Board(NewState);
+            Result.parent = this;
+            Result.move = "Down";
+            return Result;
         }
         public Board TiltUp() {
             char[][] NewState = (char[][])state.Clone();
-            int n = NewState.GetLength(0);
-            int m = NewState.GetLength(1);
             var toGo = (i: -1, j: -1);
             bool found = false;
             for (int i = 0; i < n; i++)
             {
                 found = false;
-                for (int j = 0; j < m; j++)
+                for (int j = 0; j < n; j++)
                 {
                     if (NewState[i][j] == '.' && found == false)
                     {
@@ -123,18 +124,19 @@ namespace Tilt_Game
                     }
                 }
             }
-            return new Board(NewState);
+            var Result = new Board(NewState);
+            Result.parent = this;
+            Result.move = "Up";
+            return Result;
         }
         public Board TiltLeft() {
             char[][] NewState = (char[][])state.Clone();
-            int n = NewState.GetLength(0);
-            int m = NewState.GetLength(1);
             var toGo = (i: -1, j: -1);
             bool found = false;
             for (int i = 0; i < n; i++)
             {
                 found = false;
-                for (int j = 0; j < m; j++)
+                for (int j = 0; j < n; j++)
                 {
                     if (NewState[i][j] == '.' && found == false)
                     {
@@ -157,15 +159,22 @@ namespace Tilt_Game
                 }
 
             }
-            return new Board(NewState);
+            var Result = new Board(NewState);
+            Result.parent = this;
+            Result.move = "Left";
+            return Result;
         }
         #endregion
         
 
         public String toString() 
         {
-            //Returns String representation of board
-            return null;
+            char[] holder = new char[n * n];
+            int i = 0;
+            foreach (var a in state)
+                foreach (char c in a)
+                    holder[i++] = c;
+            return holder.ToString();
         }
        
         #region Ignore
@@ -191,8 +200,41 @@ namespace Tilt_Game
         public List<Board> Solve(char[][] initialBoard, int targetX, int targetY)
         {
             //Generate Sequence starting with initialBoard
-            string[] moves = new string[] { "Initial", "down", "right"};
-            Write(InitializeStates(), "Solvable", moves);
+            InitializeStates();
+            Board current = new Board(initialBoard);
+            Queue<Board> state_queue = new Queue<Board>();
+            HashSet<Board> visited = new HashSet<Board>();
+            while (!IsWinning(current)){
+                visited.Add(current);
+                Board[] successors = new Board[] { 
+                    current.TiltUp(), current.TiltDown(), 
+                    current.TiltLeft(), current.TiltRight()};
+
+                foreach(Board successor in successors)
+                    if (!visited.Contains(successor))
+                        state_queue.Enqueue(successor);
+                current = state_queue.Dequeue();
+            }
+            if (current == null) {
+                Write(null, "Unsolvable", null);
+                return null;
+            }
+            Stack<Board> sequence = new Stack<Board>();
+            while (current.parent != null)
+            {
+                sequence.Push(current);
+                current = current.parent;
+            }
+            List<Board> states = new List<Board>();
+            states[0] = sequence.Pop();
+            String[] moves = new string[sequence.Count];
+            int c = 0;
+            while (sequence.Count > 0)
+            {
+                states.Add(sequence.Pop());
+                moves[c++] = states.Last().move; 
+            }
+            Write(states, "Solvable", moves);
             return Sequence;
         }
         //for testing write method 
@@ -223,7 +265,15 @@ namespace Tilt_Game
             new char[] { '.', 'o', 'o', '.', '.' },
             new char[] { '#', '#', '#', '.', '.' }
             };
-
+            var board1 = new Board(state1);
+            var state2_2 = board1.TiltDown();
+            int n = state2.Length;
+            for(int i = 0; i<n; i++) {
+                for (int j = 0; j < n; j++)
+                    if (state2[i][j] != state2_2.state[i][j]) 
+                        throw new Exception("Tilt down failed.");
+                    
+            }
             // Create a Board object for the second state and add it to the list
             States.Add(new Board(state2));
 
@@ -239,6 +289,39 @@ namespace Tilt_Game
 
             // Create a Board object for the third state and add it to the list
             States.Add(new Board(state3));
+
+            return States;
+        }
+
+        public List<Board> InitializeStates(int x)
+        {
+            // Initialize a list to store Board objects representing the states
+            List<Board> States = new List<Board>();
+
+            // Initialize the first state
+            Board state1 = new Board(new char[][]
+            {
+            new char[] { '#', '#', '.', '.', '.' },
+            new char[] { '.', 'o', '#', '.', '.' },
+            new char[] { '.', '.', 'o', '.', '.' },
+            new char[] { '.', '.', '.', '.', '.' },
+            new char[] { '#', '#', '#', '.', '.' }
+            });
+
+            // Create a Board object for the first state and add it to the list
+            States.Add(state1);
+
+            // Initialize the second state
+            Board state2 = state1.TiltDown();
+
+            // Create a Board object for the second state and add it to the list
+            States.Add(state2);
+
+            // Initialize the third state
+            Board state3 = state2.TiltRight();
+
+            // Create a Board object for the third state and add it to the list
+            States.Add(state3);
 
             return States;
         }
@@ -298,7 +381,7 @@ namespace Tilt_Game
 
         public Boolean IsWinning(Board board) {
             //Check if the current configuration is winning
-            return true;
+            return board.state[TargetX][TargetY] == 'o';
         }
     }
 

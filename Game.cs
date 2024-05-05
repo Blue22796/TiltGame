@@ -63,29 +63,21 @@ namespace Tilt_Game
         }
         public Board TiltDown() {
             char[][] NewState = (char[][])state.Clone();
-            var toGo = (i: -1, j: -1);
-            bool found = false;
             for (int i = n - 1; i >= 0; i--)
             {
-                found = false;
                 for (int j = 0; j < n; j++)
                 {
-                    if (NewState[i][j] == '.' && found == false)
+                    if (NewState[i][j] == 'o')
                     {
-                        toGo = (i: i, j: j);
-                        found = true;
-                    }
-                    else if (NewState[i][j] == '#')
-                    {
-                        found = false;
-                    }
-                    else if (NewState[i][j] == 'o')
-                    {
-                        if (found == true)
+                        int toGo = i;
+                        while (toGo < n - 1 && NewState[toGo + 1][j] == '.')
                         {
-                            NewState[toGo.i][toGo.j] = 'o';
+                            toGo++;
+                        }
+                        if (toGo != i)
+                        {
+                            NewState[toGo][j] = 'o';
                             NewState[i][j] = '.';
-                            toGo.i++;
                         }
                     }
                 }
@@ -97,29 +89,21 @@ namespace Tilt_Game
         }
         public Board TiltUp() {
             char[][] NewState = (char[][])state.Clone();
-            var toGo = (i: -1, j: -1);
-            bool found = false;
             for (int i = 0; i < n; i++)
             {
-                found = false;
                 for (int j = 0; j < n; j++)
                 {
-                    if (NewState[i][j] == '.' && found == false)
+                    if (NewState[i][j] == 'o')
                     {
-                        toGo = (i: i, j: j);
-                        found = true;
-                    }
-                    else if (NewState[i][j] == '#')
-                    {
-                        found = false;
-                    }
-                    else if (NewState[i][j] == 'o')
-                    {
-                        if (found == true)
+                        int toGo = i;
+                        while (toGo > 0 && NewState[toGo - 1][j] == '.')
                         {
-                            NewState[toGo.i][toGo.j] = 'o';
+                            toGo--;
+                        }
+                        if (toGo != i)
+                        {
+                            NewState[toGo][j] = 'o';
                             NewState[i][j] = '.';
-                            toGo.i--;
                         }
                     }
                 }

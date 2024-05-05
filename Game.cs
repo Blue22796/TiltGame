@@ -252,12 +252,8 @@ namespace Tilt_Game
             var board1 = new Board(state1);
             var state2_2 = board1.TiltDown();
             int n = state2.Length;
-            for(int i = 0; i<n; i++) {
-                for (int j = 0; j < n; j++)
-                    if (state2[i][j] != state2_2.state[i][j]) 
-                        throw new Exception("Tilt down failed.");
-                    
-            }
+            if (!state2_2.Equals(new Board(state2)))
+                throw new Exception("Down failed");
             // Create a Board object for the second state and add it to the list
             States.Add(new Board(state2));
 

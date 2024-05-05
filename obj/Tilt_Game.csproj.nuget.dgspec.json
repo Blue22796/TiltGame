@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fares\\Desktop\\New folder\\TiltGame\\Tilt_Game.csproj": {}
+    "C:\\Users\\user\\Desktop\\Tilt_Game\\Tilt_Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fares\\Desktop\\New folder\\TiltGame\\Tilt_Game.csproj": {
+    "C:\\Users\\user\\Desktop\\Tilt_Game\\Tilt_Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fares\\Desktop\\New folder\\TiltGame\\Tilt_Game.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Tilt_Game\\Tilt_Game.csproj",
         "projectName": "Tilt_Game",
-        "projectPath": "C:\\Users\\fares\\Desktop\\New folder\\TiltGame\\Tilt_Game.csproj",
-        "packagesPath": "C:\\Users\\fares\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fares\\Desktop\\New folder\\TiltGame\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\Tilt_Game\\Tilt_Game.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Tilt_Game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\fares\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

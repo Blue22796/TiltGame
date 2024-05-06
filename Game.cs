@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,21 +20,34 @@ namespace Tilt_Game
             this.state = state;
             n = state.Length;
         }
-       
-        
-        public Board(String state) { 
+
+
+        public Board(String state)
+        {
             //Convert String to 2d array
         }
         //Modify array when tilting the board in different directions
         #region Tilting Logic
-        public Board TiltRight() {
-            char[][] NewState = (char[][]) state.Clone();
+        public Board TiltRight()
+        {
+            char[][] NewState = (char[][])state.Clone();
             var toGo = (i: -1, j: -1);
             bool found = false;
+            //for (int i =0; i < n; i++) {
+            //    for (int j =0; j < n - 1; j++) {
+            //        if (NewState[i][j] == 'o' && NewState[i][j+1] !='#' ) {
+            //            // o will move to right 1 unit (swap) if there is no #
+            //            char temp = NewState[i][j];
+            //            NewState[i][j] = NewState[i][j + 1];
+            //            NewState[i][j + 1] = temp;
+            //        }
+
+            //    }
+            //}
             for (int i = 0; i < n; i++)
             {
-                 found  = false;
-                for (int j=n-1;j>= 0; j--)
+                found = false;
+                for (int j = n - 1; j >= 0; j--)
                 {
                     if (NewState[i][j] == '.' && found == false)
                     {
@@ -42,16 +56,16 @@ namespace Tilt_Game
                     }
                     else if (NewState[i][j] == '#')
                         found = false;
-                    else if (NewState[i][j] =='o')
+                    else if (NewState[i][j] == 'o')
                     {
-                        if (found==true)
+                        if (found == true)
                         {
                             NewState[toGo.i][toGo.j] = 'o';
                             NewState[i][j] = '.';
                             toGo.j--;
 
                         }
-                        
+
                     }
                 }
 
@@ -61,33 +75,63 @@ namespace Tilt_Game
             Result.move = "Right";
             return Result;
         }
-        public Board TiltDown() {
+        public Board TiltDown()
+        {
             char[][] NewState = (char[][])state.Clone();
-            for (int i = n - 1; i >= 0; i--)
+            bool changed = false;
+            for (int i = 0; i < n - 1; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (NewState[i][j] == 'o')
+                    if (NewState[i][j] == 'o' && NewState[i + 1][j] != '#')
                     {
-                        int toGo = i;
-                        while (toGo < n - 1 && NewState[toGo + 1][j] == '.')
-                        {
-                            toGo++;
-                        }
-                        if (toGo != i)
-                        {
-                            NewState[toGo][j] = 'o';
-                            NewState[i][j] = '.';
-                        }
+                        // o will move to Down 1 unit (swap) if there is no #
+                        char temp = NewState[i][j];
+                        NewState[i][j] = NewState[i + 1][j];
+                        NewState[i + 1][j] = temp;
+                        changed = true;
                     }
                 }
             }
+            if (!changed)
+            {
+                return new Board(NewState);
+            }
+            Console.WriteLine("-------------------------");
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(" ");
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(NewState[i][j] + " ");
+                }
+            }
+            //for (int i = n - 1; i >= 0; i--)
+            //{
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        if (NewState[i][j] == 'o')
+            //        {
+            //            int toGo = i;
+            //            while (toGo < n - 1 && NewState[toGo + 1][j] == '.')
+            //            {
+            //                toGo++;
+            //            }
+            //            if (toGo != i)
+            //            {
+            //                NewState[toGo][j] = 'o';
+            //                NewState[i][j] = '.';
+            //            }
+            //        }
+            //    }
+            //}
             var Result = new Board(NewState);
             Result.parent = this;
             Result.move = "Down";
             return Result;
         }
-        public Board TiltUp() {
+        public Board TiltUp()
+        {
             char[][] NewState = (char[][])state.Clone();
             for (int i = 0; i < n; i++)
             {
@@ -113,7 +157,8 @@ namespace Tilt_Game
             Result.move = "Up";
             return Result;
         }
-        public Board TiltLeft() {
+        public Board TiltLeft()
+        {
             char[][] NewState = (char[][])state.Clone();
             var toGo = (i: -1, j: -1);
             bool found = false;
@@ -129,7 +174,7 @@ namespace Tilt_Game
                     }
                     else if (NewState[i][j] == '#')
                         found = false;
-                    else if(NewState[i][j] == 'o')
+                    else if (NewState[i][j] == 'o')
                     {
                         if (found == true)
                         {
@@ -149,9 +194,9 @@ namespace Tilt_Game
             return Result;
         }
         #endregion
-        
 
-        public String toString() 
+
+        public String toString()
         {
             char[] holder = new char[n * n];
             int i = 0;
@@ -160,7 +205,7 @@ namespace Tilt_Game
                     holder[i++] = c;
             return holder.ToString();
         }
-       
+
         #region Ignore
         public override bool Equals(object? obj)
         {
@@ -176,7 +221,7 @@ namespace Tilt_Game
 
 
 
-    public class Player 
+    public class Player
     {
         List<Board> Sequence = new List<Board>();
         int TargetX;
@@ -188,18 +233,20 @@ namespace Tilt_Game
             Board current = new Board(initialBoard);
             Queue<Board> state_queue = new Queue<Board>();
             HashSet<Board> visited = new HashSet<Board>();
-            while (!IsWinning(current)){
+            while (!IsWinning(current))
+            {
                 visited.Add(current);
-                Board[] successors = new Board[] { 
-                    current.TiltUp(), current.TiltDown(), 
+                Board[] successors = new Board[] {
+                    current.TiltUp(), current.TiltDown(),
                     current.TiltLeft(), current.TiltRight()};
 
-                foreach(Board successor in successors)
+                foreach (Board successor in successors)
                     if (!visited.Contains(successor))
                         state_queue.Enqueue(successor);
                 current = state_queue.Dequeue();
             }
-            if (current == null) {
+            if (current == null)
+            {
                 Write(null, "Unsolvable", null);
                 return null;
             }
@@ -216,7 +263,7 @@ namespace Tilt_Game
             while (sequence.Count > 0)
             {
                 states.Add(sequence.Pop());
-                moves[c++] = states.Last().move; 
+                moves[c++] = states.Last().move;
             }
             Write(states, "Solvable", moves);
             return Sequence;
@@ -252,11 +299,12 @@ namespace Tilt_Game
             var board1 = new Board(state1);
             var state2_2 = board1.TiltDown();
             int n = state2.Length;
-            for(int i = 0; i<n; i++) {
+            for (int i = 0; i < n; i++)
+            {
                 for (int j = 0; j < n; j++)
-                    if (state2[i][j] != state2_2.state[i][j]) 
+                    if (state2[i][j] != state2_2.state[i][j])
                         throw new Exception("Tilt down failed.");
-                    
+
             }
             // Create a Board object for the second state and add it to the list
             States.Add(new Board(state2));
@@ -314,7 +362,7 @@ namespace Tilt_Game
         {
             try
             {
-                
+
                 string filePath = "output.txt";
 
 
@@ -323,11 +371,11 @@ namespace Tilt_Game
 
                     writer.WriteLine(solveState);
 
-                    if(solveState == "Unsolvable")
+                    if (solveState == "Unsolvable")
                     {
                         return;
                     }
-                    writer.WriteLine("Min number of moves: " + (moves.Length - 1 ));
+                    writer.WriteLine("Min number of moves: " + (moves.Length - 1));
 
 
                     writer.WriteLine("Sequence of moves: " + string.Join(", ", moves.Skip(1)) + ",");
@@ -341,13 +389,13 @@ namespace Tilt_Game
                         {
                             for (int j = 0; j < currentState[i].Length; j++)
                             {
-                                if(j != currentState[i].Length-1)
+                                if (j != currentState[i].Length - 1)
                                 {
                                     writer.Write(currentState[i][j] + ", ");
                                 }
                                 else
                                 {
-                                    writer.Write(currentState[i][j] );
+                                    writer.Write(currentState[i][j]);
                                 }
                             }
                             writer.WriteLine();
@@ -363,18 +411,19 @@ namespace Tilt_Game
             }
         }
 
-        public Boolean IsWinning(Board board) {
+        public Boolean IsWinning(Board board)
+        {
             //Check if the current configuration is winning
             return board.state[TargetX][TargetY] == 'o';
         }
     }
 
-    public class Cameraman 
-    { 
+    public class Cameraman
+    {
         //public GUIComponent Representation(Board board)
         //{
         //Generate a grid GUI Component representing the current board configuration
         //}
     }
-    
+
 }

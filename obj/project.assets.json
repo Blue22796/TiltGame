@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\fares\\.nuget\\packages\\": {}
+    "C:\\Users\\abdul\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fares\\Desktop\\New folder\\TiltGame\\Tilt_Game.csproj",
+      "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\سطح المكتب\\collage\\Tilt Game\\tiltGame\\TiltGame\\Tilt_Game.csproj",
       "projectName": "Tilt_Game",
-      "projectPath": "C:\\Users\\fares\\Desktop\\New folder\\TiltGame\\Tilt_Game.csproj",
-      "packagesPath": "C:\\Users\\fares\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fares\\Desktop\\New folder\\TiltGame\\obj\\",
+      "projectPath": "C:\\Users\\abdul\\OneDrive\\سطح المكتب\\collage\\Tilt Game\\tiltGame\\TiltGame\\Tilt_Game.csproj",
+      "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abdul\\OneDrive\\سطح المكتب\\collage\\Tilt Game\\tiltGame\\TiltGame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\fares\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -40,6 +40,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -61,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

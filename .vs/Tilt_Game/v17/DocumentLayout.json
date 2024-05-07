@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\abdul\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\Tilt Game\\tiltGame\\TiltGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D6BA518F-7B90-4C54-9EC5-BCF48EF12080}|Tilt_Game.csproj|c:\\users\\abdul\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\tilt game\\tiltgame\\tiltgame\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6BA518F-7B90-4C54-9EC5-BCF48EF12080}|Tilt_Game.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6BA518F-7B90-4C54-9EC5-BCF48EF12080}|Tilt_Game.csproj|c:\\users\\abdul\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\tilt game\\tiltgame\\tiltgame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6BA518F-7B90-4C54-9EC5-BCF48EF12080}|Tilt_Game.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6BA518F-7B90-4C54-9EC5-BCF48EF12080}|Tilt_Game.csproj|c:\\users\\abdul\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\tilt game\\tiltgame\\tiltgame\\case1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D6BA518F-7B90-4C54-9EC5-BCF48EF12080}|Tilt_Game.csproj|solutionrelative:case1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Case1.txt",
+              "DocumentMoniker": "C:\\Users\\abdul\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\Tilt Game\\tiltGame\\TiltGame\\Case1.txt",
+              "RelativeDocumentMoniker": "Case1.txt",
+              "ToolTip": "C:\\Users\\abdul\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\Tilt Game\\tiltGame\\TiltGame\\Case1.txt",
+              "RelativeToolTip": "Case1.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-06T08:55:20.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\abdul\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\Tilt Game\\tiltGame\\TiltGame\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\abdul\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\Tilt Game\\tiltGame\\TiltGame\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T08:55:20.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\abdul\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\Tilt Game\\tiltGame\\TiltGame\\Game.cs",
+              "RelativeDocumentMoniker": "Game.cs",
+              "ToolTip": "C:\\Users\\abdul\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\collage\\Tilt Game\\tiltGame\\TiltGame\\Game.cs",
+              "RelativeToolTip": "Game.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAA9wCgAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T08:55:20.318Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

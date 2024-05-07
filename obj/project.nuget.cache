@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "1xLz5NZhLjLTA3VMrXUWeybm8LFNGrLm/j9QW7XJqONAOWTNb+Sslz+6vC7h3g7/D8DOQkRqXh/z/vC8eMqITg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Desktop\\Tilt_Game\\Tilt_Game.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\user\\Desktop\\Tilt_Game\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
+}

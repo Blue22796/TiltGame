@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +14,7 @@ namespace Tilt_Game
         public String move;
         public String asString;
         int hash = 0;
+
         int n;
 
         public Board(char[][] state)
@@ -360,5 +360,4 @@ namespace Tilt_Game
         //Generate a grid GUI Component representing the current board configuration
         //}
     }
-
 }

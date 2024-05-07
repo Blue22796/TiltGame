@@ -43,4 +43,3 @@ C:\Users\10\Desktop\TiltGame\bin\Debug\net8.0\Tilt_Game.dll
 C:\Users\10\Desktop\TiltGame\bin\Debug\net8.0\Tilt_Game.pdb
 C:\Users\10\Desktop\TiltGame\obj\Debug\net8.0\Tilt_Game.genruntimeconfig.cache
 C:\Users\10\Desktop\TiltGame\obj\Debug\net8.0\ref\Tilt_Game.dll
-C:\Users\user\Desktop\Tilt_Game\obj\Debug\net8.0\Tilt_Game.sourcelink.json

@@ -31,45 +31,48 @@ namespace Tilt_Game
         public Board TiltRight()
         {
             char[][] NewState = (char[][])state.Clone();
-            var toGo = (i: -1, j: -1);
-            bool found = false;
-            //for (int i =0; i < n; i++) {
-            //    for (int j =0; j < n - 1; j++) {
-            //        if (NewState[i][j] == 'o' && NewState[i][j+1] !='#' ) {
-            //            // o will move to right 1 unit (swap) if there is no #
-            //            char temp = NewState[i][j];
-            //            NewState[i][j] = NewState[i][j + 1];
-            //            NewState[i][j + 1] = temp;
-            //        }
-
-            //    }
-            //}
+            //var toGo = (i: -1, j: -1);
+            //bool found = false;
             for (int i = 0; i < n; i++)
             {
-                found = false;
-                for (int j = n - 1; j >= 0; j--)
+                for (int j = 0; j < n - 1; j++)
                 {
-                    if (NewState[i][j] == '.' && found == false)
+                    if (NewState[i][j] == 'o' && NewState[i][j + 1] != '#')
                     {
-                        toGo = (i: i, j: j);
-                        found = true;
+                        // o will move to right 1 unit (swap) if there is no #
+                        char temp = NewState[i][j];
+                        NewState[i][j] = NewState[i][j + 1];
+                        NewState[i][j + 1] = temp;
                     }
-                    else if (NewState[i][j] == '#')
-                        found = false;
-                    else if (NewState[i][j] == 'o')
-                    {
-                        if (found == true)
-                        {
-                            NewState[toGo.i][toGo.j] = 'o';
-                            NewState[i][j] = '.';
-                            toGo.j--;
 
-                        }
-
-                    }
                 }
-
             }
+            //for (int i = 0; i < n; i++)
+            //{
+            //    found = false;
+            //    for (int j = n - 1; j >= 0; j--)
+            //    {
+            //        if (NewState[i][j] == '.' && found == false)
+            //        {
+            //            toGo = (i: i, j: j);
+            //            found = true;
+            //        }
+            //        else if (NewState[i][j] == '#')
+            //            found = false;
+            //        else if (NewState[i][j] == 'o')
+            //        {
+            //            if (found == true)
+            //            {
+            //                NewState[toGo.i][toGo.j] = 'o';
+            //                NewState[i][j] = '.';
+            //                toGo.j--;
+
+            //            }
+
+            //        }
+            //    }
+
+            //}
             var Result = new Board(NewState);
             Result.parent = this;
             Result.move = "Right";
@@ -78,7 +81,6 @@ namespace Tilt_Game
         public Board TiltDown()
         {
             char[][] NewState = (char[][])state.Clone();
-            bool changed = false;
             for (int i = 0; i < n - 1; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -89,21 +91,7 @@ namespace Tilt_Game
                         char temp = NewState[i][j];
                         NewState[i][j] = NewState[i + 1][j];
                         NewState[i + 1][j] = temp;
-                        changed = true;
                     }
-                }
-            }
-            if (!changed)
-            {
-                return new Board(NewState);
-            }
-            Console.WriteLine("-------------------------");
-            for (int i = 0; i < n; i++)
-            {
-                Console.WriteLine(" ");
-                for (int j = 0; j < n; j++)
-                {
-                    Console.Write(NewState[i][j] + " ");
                 }
             }
             //for (int i = n - 1; i >= 0; i--)
@@ -133,25 +121,36 @@ namespace Tilt_Game
         public Board TiltUp()
         {
             char[][] NewState = (char[][])state.Clone();
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    if (NewState[i][j] == 'o')
-                    {
-                        int toGo = i;
-                        while (toGo > 0 && NewState[toGo - 1][j] == '.')
-                        {
-                            toGo--;
-                        }
-                        if (toGo != i)
-                        {
-                            NewState[toGo][j] = 'o';
-                            NewState[i][j] = '.';
-                        }
+            for (int i =1; i < n; i ++) {
+                for (int j = 0; j < n; j ++) {
+                    if (NewState[i][j] == 'o' && NewState[i-1][j] != '#') {
+
+                        // o will move to UP 1 unit (swap) if there is no #
+                        char temp = NewState[i][j];
+                        NewState[i][j] = NewState[i - 1][j];
+                        NewState[i - 1][j] = temp;
                     }
                 }
             }
+            //for (int i = 0; i < n; i++)
+            //{
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        if (NewState[i][j] == 'o')
+            //        {
+            //            int toGo = i;
+            //            while (toGo > 0 && NewState[toGo - 1][j] == '.')
+            //            {
+            //                toGo--;
+            //            }
+            //            if (toGo != i)
+            //            {
+            //                NewState[toGo][j] = 'o';
+            //                NewState[i][j] = '.';
+            //            }
+            //        }
+            //    }
+            //}
             var Result = new Board(NewState);
             Result.parent = this;
             Result.move = "Up";
@@ -160,34 +159,47 @@ namespace Tilt_Game
         public Board TiltLeft()
         {
             char[][] NewState = (char[][])state.Clone();
-            var toGo = (i: -1, j: -1);
-            bool found = false;
-            for (int i = 0; i < n; i++)
-            {
-                found = false;
-                for (int j = 0; j < n; j++)
-                {
-                    if (NewState[i][j] == '.' && found == false)
-                    {
-                        toGo = (i: i, j: j);
-                        found = true;
-                    }
-                    else if (NewState[i][j] == '#')
-                        found = false;
-                    else if (NewState[i][j] == 'o')
-                    {
-                        if (found == true)
-                        {
-                            NewState[toGo.i][toGo.j] = 'o';
-                            NewState[i][j] = '.';
-                            toGo.j++;
 
-                        }
-
+            for (int i =0; i < n; i ++ ) {
+                for (int j =1; j < n;  j ++ ) {
+                    if (NewState[i][j] == 'o' && NewState[i][j-1] != '#') {
+                        // o will move to left 1 unit (swap) if there is no #
+                        char temp = NewState[i][j];
+                        NewState[i][j] = NewState[i][j-1];
+                        NewState[i][j-1] = temp;
                     }
                 }
-
             }
+            
+            
+            //var toGo = (i: -1, j: -1);
+            //bool found = false;
+            //for (int i = 0; i < n; i++)
+            //{
+            //    found = false;
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        if (NewState[i][j] == '.' && found == false)
+            //        {
+            //            toGo = (i: i, j: j);
+            //            found = true;
+            //        }
+            //        else if (NewState[i][j] == '#')
+            //            found = false;
+            //        else if (NewState[i][j] == 'o')
+            //        {
+            //            if (found == true)
+            //            {
+            //                NewState[toGo.i][toGo.j] = 'o';
+            //                NewState[i][j] = '.';
+            //                toGo.j++;
+
+            //            }
+
+            //        }
+            //    }
+
+            //}
             var Result = new Board(NewState);
             Result.parent = this;
             Result.move = "Left";

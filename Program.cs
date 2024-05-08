@@ -59,7 +59,7 @@ void read(int x = 1)
         Console.WriteLine("An error occurred: " + ex.Message);
     }
 }
-for(int i = 1; i<6; i++)
+for(int i = 1; i<=6; i++)
     read(i);
 
 

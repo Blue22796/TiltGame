@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,65 +11,85 @@ namespace Tilt_Game
     {
 
         public char[][] state;
+        public static char[,] layout;
         public Board parent;
         public String move;
-        public String asString;
+        public HashSet<int> pos;
         int hash = 0;
-
-        int n;
+        static int coeff = (int)(new Random().NextInt64()%911);
+        static int n;
 
         public Board(char[][] state)
         {
             this.state = state;
             n = state.Length;
-        }
+            layout = new char[n,n];
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                    if (state[i][j] == '#')
+                        layout[i, j] = '#';
+                    else layout[i, j] = '.';
 
+
+            pos = new HashSet<int>();
+            for (int i = 0; i < n; i++)
+            for(int j = 0; j < n; j++)
+                if (state[i][j] == 'o')
+                    pos.Add(i*n+j);
+            
+            if(GetHashCode() == 0)
+            {
+                hash++;
+            }
+        }
+        public Board(HashSet<int> pos) {
+            this.pos = pos;
+            if (GetHashCode() == 0)
+                hash = 1;
+            if(n<100)
+                initState();
+        }
+        public void initState() {
+            state = new char[n][];
+            for (int i = 0; i < n; i++)
+            {
+                state[i] = new char[n];
+                for (int j = 0; j < n; j++)
+                    state[i][j] = layout[i, j];
+            }
+            foreach (int i in pos)
+                state[i / n][i % n] = 'o';
+        }
         //Modify array when tilting the board in different directions
         #region Tilting Logic
-
-        public char[][] cpy(char[][] orig)
-        {
-            char[][] new_state = new char[n][];
-            for(int i = 0; i < n;i++)
-                new_state[i] = (char[])orig[i].Clone();
-            return new_state;
-        }
-
         public Board TiltRight()
         {
             if (move == "Right")
                 return this;
-            char[][] NewState = cpy(state);
-            var toGo = (i: -1, j: -1);
-            bool found = false;
-            
-            for (int i = 0; i < n; i++)
+            foreach (int i in pos)
+                layout[i / n, i % n] = 'o';
+            HashSet<int> targetRows = new HashSet<int>();
+            foreach(int i in pos)
+                targetRows.Add(i/n);
+            var newPos = new HashSet<int>();
+            foreach(int i in targetRows)
             {
-                found = false;
-                for (int j = n - 1; j >= 0; j--)
-                {
-                    if (NewState[i][j] == '.' && found == false)
+                int cnt = 0;
+                for (int j = 0; j <= n; j++) {
+                    if (j == n || layout[i, j] == '#')
+                        for (; cnt > 0; cnt--)
+                            newPos.Add(i * n + j - cnt);
+                    else if (layout[i, j] == 'o')
                     {
-                        toGo = (i: i, j: j);
-                        found = true;
-                    }
-                    else if (NewState[i][j] == '#')
-                        found = false;
-                    else if (NewState[i][j] == 'o')
-                    {
-                        if (found == true)
-                        {
-                            NewState[toGo.i][toGo.j] = 'o';
-                            NewState[i][j] = '.';
-                            toGo.j--;
-
-                        }
-
+                        layout[i, j] = '.';
+                        cnt++;
                     }
                 }
 
             }
-            var Result = new Board(NewState);
+            if (newPos.Count != pos.Count)
+                Console.WriteLine(-1);
+            var Result = new Board(newPos);
             Result.parent = this;
             Result.move = "Right";
             return Result;
@@ -77,27 +98,37 @@ namespace Tilt_Game
         {
             if (move == "Down")
                 return this;
-            char[][] NewState = cpy(state);
-            for (int i = 0; i < n - 1; i++)
+
+            HashSet<int> targetCols= new HashSet<int>();
+            foreach (int i in pos)
+            {
+                targetCols.Add(i % n);
+                layout[i / n, i % n] = 'o';
+            }
+            HashSet<int> newPos = new HashSet<int>();
+            foreach (int i in targetCols)
             {
                 int cnt = 0;
                 for (int j = 0; j <= n; j++)
-                    if (j==n || NewState[j][i] == '#')
+                    if (j == n || layout[j, i] == '#')
                     {
                         for (int k = j - 1; cnt > 0; k--, cnt--)
                         {
-                            NewState[k][i] = 'o';
+                            newPos.Add(k*n+i);
                         }
                     }
-                    else if (NewState[j][i] == 'o')
+                    else if (layout[j,i] == 'o')
                     {
                         cnt++;
-                        NewState[j][i] = '.';
+                        layout[j,i] = '.';
                     }
           
             }
-            
-            var Result = new Board(NewState);
+            if (newPos.Count != pos.Count)
+                Console.WriteLine(-1);
+            foreach (int i in newPos)
+                layout[i / n, i % n] = '.';
+            var Result = new Board(newPos);
             Result.parent = this;
             Result.move = "Down";
             return Result;
@@ -106,27 +137,32 @@ namespace Tilt_Game
         {
             if (move == "Up")
                 return this;
-            char[][] NewState = cpy(state);
-            for (int i = 0; i < n; i++)
+            HashSet<int> targetCols = new HashSet<int>();
+            HashSet<int> newPos = new HashSet<int> ();
+            foreach (int i in pos)
             {
-                for (int j = 0; j < n; j++)
-                {
-                    if (NewState[i][j] == 'o')
-                    {
-                        int toGo = i;
-                        while (toGo > 0 && NewState[toGo - 1][j] == '.')
-                        {
-                            toGo--;
-                        }
-                        if (toGo != i)
-                        {
-                            NewState[toGo][j] = 'o';
-                            NewState[i][j] = '.';
-                        }
+                layout[i / n, i % n] = 'o';
+                targetCols.Add(i % n);
+            }
+            foreach (int i in targetCols) {
+                int cnt = 0;
+                for (int j = n-1; j >= -1; j--) {
+                    if (j == -1 || layout[j, i] == '#')
+                        for (; cnt > 0; cnt--)
+                            newPos.Add((j + cnt) * n + i);
+                    else if (layout[j, i] == 'o') { 
+                        cnt++;
+                        layout[j, i] = '.';
                     }
                 }
+                if (cnt > 0)
+                    Console.WriteLine(-1);
             }
-            var Result = new Board(NewState);
+            if (newPos.Count != pos.Count)
+                Console.WriteLine(-1);
+            foreach (int i in newPos)
+                layout[i / n, i % n] = '.';
+            var Result = new Board(newPos);
             Result.parent = this;
             Result.move = "Up";
             return Result;
@@ -135,36 +171,32 @@ namespace Tilt_Game
         {
             if (move == "Left")
                 return this;
-            char[][] NewState = cpy(state);
-            var toGo = (i: -1, j: -1);
-            bool found = false;
-            for (int i = 0; i < n; i++)
-            {
-                found = false;
-                for (int j = 0; j < n; j++)
-                {
-                    if (NewState[i][j] == '.' && found == false)
+            HashSet<int> newPos = new HashSet<int>();
+            HashSet<int> targetRows = new HashSet<int>();
+            foreach (int i in pos)
+                targetRows.Add(i / n);
+            foreach (int i in pos)
+                layout[i / n, i % n] = 'o';
+            foreach (int i in targetRows) {
+                int cnt = 0;
+                for (int j = n - 1; j >= -1; j--) {
+                    if (j == -1 || layout[i, j] == '#')
                     {
-                        toGo = (i: i, j: j);
-                        found = true;
+                        for (; cnt > 0; cnt--)
+                            newPos.Add(i * n + (j + cnt));
                     }
-                    else if (NewState[i][j] == '#')
-                        found = false;
-                    else if (NewState[i][j] == 'o')
-                    {
-                        if (found == true)
-                        {
-                            NewState[toGo.i][toGo.j] = 'o';
-                            NewState[i][j] = '.';
-                            toGo.j++;
-
-                        }
-
+                    else if (layout[i, j] == 'o') {
+                        cnt++;
+                        layout[i, j] = '.';
                     }
                 }
-
             }
-            var Result = new Board(NewState);
+
+            if (newPos.Count != pos.Count)
+                Console.WriteLine(-1);
+            foreach (int i in newPos)
+                layout[i / n, i % n] = '.';
+            var Result = new Board(newPos);
             Result.parent = this;
             Result.move = "Left";
             return Result;
@@ -172,19 +204,6 @@ namespace Tilt_Game
         #endregion
 
 
-        public String toString()
-        {
-            if (asString == null)
-            {
-                char[] holder = new char[n * n];
-                int i = 0;
-                foreach (var a in state)
-                    foreach (char c in a)
-                        holder[i++] = c;
-                asString = new string(holder);
-            }
-            return asString;
-        }
 
 
         #region Ignore
@@ -195,13 +214,20 @@ namespace Tilt_Game
             if(!obj.GetType().Equals(this.GetType()))
                 return false;
             var brd = (Board)obj;
-            return this.toString().Equals(brd.toString());
+            if (brd.pos.Count != pos.Count)
+                return false;
+            foreach (int i in brd.pos)
+                if (!pos.Contains(i))
+                    return false;
+            return true;
         }
 
         public override int GetHashCode()
         {
-            if(hash == 0)
-                hash = toString().GetHashCode();
+            if (hash == 0) {
+                foreach (int i in pos)
+                    hash = (hash + i * coeff) % 1000000007;
+            }
             return hash;
         }
 
@@ -229,6 +255,7 @@ namespace Tilt_Game
         int TargetX;
         int TargetY;
         int num;
+        int dim;
         List<Board> Answer(Board current) { 
             StopWatch.Stop();
             Console.WriteLine("Elapsed time: " + StopWatch.ElapsedMilliseconds / 1000);
@@ -241,10 +268,11 @@ namespace Tilt_Game
                 sequence.Add(current);
             }
             sequence.Reverse();
+            
+            Write(sequence, "Solvable");
             StopWatch.Stop();
             Console.WriteLine(StopWatch.ElapsedMilliseconds / 1000);
 
-            Write(sequence, "Solvable", num);
             return sequence;
         }
 
@@ -254,6 +282,7 @@ namespace Tilt_Game
 
             //Generate Sequence starting with initialBoard
             Board current = new Board(initialBoard);
+            dim = initialBoard.Length;
             Queue<Board> state_queue = new Queue<Board>();
             HashSet<Board> visited = new HashSet<Board>();
             this.TargetX = targetX;
@@ -284,14 +313,14 @@ namespace Tilt_Game
                 current = state_queue.Dequeue();
             }
 
+           
+            Write(null, "Unsolvable");
             StopWatch.Stop();
             Console.WriteLine("Elapsed time: " + StopWatch.ElapsedMilliseconds / 1000);
-
-            Write(null, "Unsolvable", 0);
             return null;
         }
 
-        public void Write(List<Board> States, string solveState, int num)
+        public void Write(List<Board> States, string solveState)
         {
             
 
@@ -313,6 +342,10 @@ namespace Tilt_Game
                     String[] seq = States.Skip(1).Select(b => b.move).ToArray();
                     writer.WriteLine("Sequence of moves: " + string.Join(',',seq));
 
+                    for(int i  = 0; i < States.Count; i++)
+                    {
+                        States[i].initState();
+                    }
 
                     foreach(Board state in States)
                     {
@@ -347,8 +380,11 @@ namespace Tilt_Game
         public Boolean IsWinning(Board board)
         {
             //Check if the current configuration is winning
-            if (board.state[TargetY][TargetX] == 'o')
-                return true;
+            if (board.state != null)
+                return board.state[TargetY][TargetX] == 'o';
+            foreach (int i in board.pos)
+                if (i == TargetY * dim + TargetX)
+                    return true;
             return false;
         }
     }

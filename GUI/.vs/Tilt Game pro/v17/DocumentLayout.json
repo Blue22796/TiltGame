@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\",
+  "WorkspaceRootPath": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8E8AB93-FE97-4550-AA19-03A90CA6B9F9}|Tilt Game pro\\Tilt Game pro.csproj|c:\\users\\omarf\\source\\repos\\tilt game pro\\gui\\tilt game pro\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8E8AB93-FE97-4550-AA19-03A90CA6B9F9}|Tilt Game pro\\Tilt Game pro.csproj|c:\\users\\omarf\\onedrive\\desktop\\ssss\\tiltgame\\gui\\tilt game pro\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8E8AB93-FE97-4550-AA19-03A90CA6B9F9}|Tilt Game pro\\Tilt Game pro.csproj|solutionrelative:tilt game pro\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8E8AB93-FE97-4550-AA19-03A90CA6B9F9}|Tilt Game pro\\Tilt Game pro.csproj|c:\\users\\omarf\\source\\repos\\tilt game pro\\gui\\tilt game pro\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{B8E8AB93-FE97-4550-AA19-03A90CA6B9F9}|Tilt Game pro\\Tilt Game pro.csproj|c:\\users\\omarf\\onedrive\\desktop\\ssss\\tiltgame\\gui\\tilt game pro\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B8E8AB93-FE97-4550-AA19-03A90CA6B9F9}|Tilt Game pro\\Tilt Game pro.csproj|solutionrelative:tilt game pro\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Tilt Game pro\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\MainWindow.xaml",
               "RelativeToolTip": "Tilt Game pro\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-09T02:45:31.608Z"
@@ -35,9 +35,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Tilt Game pro\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\MainWindow.xaml.cs",
               "RelativeToolTip": "Tilt Game pro\\MainWindow.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAEkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

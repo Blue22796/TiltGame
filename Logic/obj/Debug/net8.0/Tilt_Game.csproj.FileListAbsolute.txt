@@ -57,3 +57,18 @@ C:\Users\omarf\source\repos\Tilt Game pro\Logic\obj\Debug\net8.0\refint\Tilt_Gam
 C:\Users\omarf\source\repos\Tilt Game pro\Logic\obj\Debug\net8.0\Tilt_Game.pdb
 C:\Users\omarf\source\repos\Tilt Game pro\Logic\obj\Debug\net8.0\Tilt_Game.genruntimeconfig.cache
 C:\Users\omarf\source\repos\Tilt Game pro\Logic\obj\Debug\net8.0\ref\Tilt_Game.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\bin\Debug\net8.0\Tilt_Game.exe
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\bin\Debug\net8.0\Tilt_Game.deps.json
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\bin\Debug\net8.0\Tilt_Game.runtimeconfig.json
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\bin\Debug\net8.0\Tilt_Game.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\bin\Debug\net8.0\Tilt_Game.pdb
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.AssemblyInfoInputs.cache
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.AssemblyInfo.cs
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.csproj.CoreCompileInputs.cache
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.sourcelink.json
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\refint\Tilt_Game.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.pdb
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.genruntimeconfig.cache
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\ref\Tilt_Game.dll

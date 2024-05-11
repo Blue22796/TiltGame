@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\Tilt Game pro.csproj": {}
+    "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\Tilt Game pro.csproj": {}
   },
   "projects": {
-    "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\Tilt Game pro.csproj": {
+    "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\Tilt Game pro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\Tilt Game pro.csproj",
+        "projectUniqueName": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\Tilt Game pro.csproj",
         "projectName": "Tilt Game pro",
-        "projectPath": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\Tilt Game pro.csproj",
+        "projectPath": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\Tilt Game pro.csproj",
         "packagesPath": "C:\\Users\\omarf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\GUI\\Tilt Game pro\\obj\\",
+        "outputPath": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\GUI\\Tilt Game pro\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\omarf\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\Tilt_Game.csproj": {
-                "projectPath": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\Tilt_Game.csproj"
+              "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\Tilt_Game.csproj": {
+                "projectPath": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\Tilt_Game.csproj"
               }
             }
           }
@@ -71,14 +71,14 @@
         }
       }
     },
-    "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\Tilt_Game.csproj": {
+    "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\Tilt_Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\Tilt_Game.csproj",
+        "projectUniqueName": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\Tilt_Game.csproj",
         "projectName": "Tilt_Game",
-        "projectPath": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\Tilt_Game.csproj",
+        "projectPath": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\Tilt_Game.csproj",
         "packagesPath": "C:\\Users\\omarf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\obj\\",
+        "outputPath": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\omarf\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\Tilt_Game.csproj",
+      "projectUniqueName": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\Tilt_Game.csproj",
       "projectName": "Tilt_Game",
-      "projectPath": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\Tilt_Game.csproj",
+      "projectPath": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\Tilt_Game.csproj",
       "packagesPath": "C:\\Users\\omarf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\omarf\\source\\repos\\Tilt Game pro\\Logic\\obj\\",
+      "outputPath": "C:\\Users\\omarf\\OneDrive\\Desktop\\ssss\\TiltGame\\Logic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\omarf\\AppData\\Roaming\\NuGet\\NuGet.Config",

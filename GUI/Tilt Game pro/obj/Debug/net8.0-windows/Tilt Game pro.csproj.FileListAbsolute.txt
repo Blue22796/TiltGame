@@ -49,3 +49,31 @@ C:\Users\omarf\source\repos\Tilt Game pro\GUI\Tilt Game pro\obj\Debug\net8.0-win
 C:\Users\omarf\source\repos\Tilt Game pro\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Gam.7085AE48.Up2Date
 C:\Users\omarf\source\repos\Tilt Game pro\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.genruntimeconfig.cache
 C:\Users\omarf\source\repos\Tilt Game pro\GUI\Tilt Game pro\obj\Debug\net8.0-windows\ref\Tilt Game pro.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt_Game.deps.json
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt_Game.runtimeconfig.json
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt_Game.exe
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt Game pro.exe
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt Game pro.deps.json
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt Game pro.runtimeconfig.json
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt Game pro.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt Game pro.pdb
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt_Game.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\bin\Debug\net8.0-windows\Tilt_Game.pdb
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.csproj.AssemblyReference.cache
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro_MarkupCompile.cache
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro_MarkupCompile.lref
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.g.resources
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.AssemblyInfoInputs.cache
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.AssemblyInfo.cs
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.csproj.CoreCompileInputs.cache
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.sourcelink.json
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Gam.7085AE48.Up2Date
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\refint\Tilt Game pro.dll
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.pdb
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\Tilt Game pro.genruntimeconfig.cache
+C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\GUI\Tilt Game pro\obj\Debug\net8.0-windows\ref\Tilt Game pro.dll

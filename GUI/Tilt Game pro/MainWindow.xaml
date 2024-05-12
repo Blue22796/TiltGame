@@ -37,6 +37,8 @@
                         VerticalAlignment="Center" FontSize="18" Click="Button_select" Background="#4E8DF5"/>
                 <Button Content="Run" Height="50" Width="100" Background="#4E8DF5"
                         VerticalAlignment="Bottom" Margin="50" FontSize="20" Click="Button_run"/>
+                <TextBox Name="time" FontSize="14" VerticalAlignment="Bottom"
+         HorizontalAlignment="Center" Margin="10" Width="auto" BorderThickness="0"/>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1" Name="statebtns" Visibility="Collapsed">
                 <Grid.ColumnDefinitions>

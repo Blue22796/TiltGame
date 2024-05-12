@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -75,8 +76,13 @@ namespace Tilt_Game_pro
 
         private void Button_run(object sender, RoutedEventArgs e)
         {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             Player Player = new Player();
             Player.Solve(State, TargetX, TargetY, 1);
+            sw.Stop();
+            TimeSpan elapsed = sw.Elapsed;
+            time.Text = "Time Elapsed: " + elapsed.TotalSeconds + " Seconds";
             string fileName = string.Format("./output{0}.txt", 1);
             lines = File.ReadAllLines(fileName);
             bool solvable = lines[0].Trim() == "Solvable";

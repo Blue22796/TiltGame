@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tilt_Game")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b1298b53b5e5266314a673f88824e43d58f038a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f0b298599c13bdce5dc4a6e0e34c6d95a43766d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tilt_Game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tilt_Game")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

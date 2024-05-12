@@ -72,3 +72,4 @@ C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\refint\Tilt
 C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.pdb
 C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\Tilt_Game.genruntimeconfig.cache
 C:\Users\omarf\OneDrive\Desktop\ssss\TiltGame\Logic\obj\Debug\net8.0\ref\Tilt_Game.dll
+C:\Users\omarf\source\repos\Tilt Game pro\Logic\obj\Debug\net8.0\Tilt_Game.sourcelink.json

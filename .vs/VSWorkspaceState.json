@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GUI",
+    "\\GUI\\Tilt Game pro",
+    "\\Logic"
   ],
-  "SelectedNode": "\\Game.cs",
+  "SelectedNode": "\\GUI\\Tilt Game pro\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

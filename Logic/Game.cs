@@ -23,7 +23,8 @@ namespace Tilt_Game
         public bool Contains(Board b)
         {
             int h2 = b.getHash2();
-            return Sets[h2].Contains(b);
+            bool contains = Sets[h2].Contains(b);
+            return contains;
         }
 
         public int Count = 0;
@@ -47,9 +48,15 @@ namespace Tilt_Game
         public Board parent;
         public String move;
         public SortedSet<int> pos;
+        public int stps = 0;
         int hash = 0;
-        static int coeff = (int)(new Random().NextInt64() % 911);
-        static int coeff2 = (int)(new Random().NextInt64() % 911);
+        int hash2 = 0;
+        int hash3 = 0;
+        int hash4 = 0;
+        static int coeff = (int)(new Random().NextInt64() % 911) + 1;
+        static int coeff2 = (int)(new Random().NextInt64() % 911) + 1;
+        static int coeff3 = (int)(new Random().NextInt64() % 911) + 1;
+        static int coeff4 = (int)(new Random().NextInt64() % 911) + 911;
         static int n;
 
         public Board(char[][] state)
@@ -70,16 +77,12 @@ namespace Tilt_Game
                     if (state[i][j] == 'o')
                         pos.Add(i * n + j);
 
-            GetHashCode();
-            getHash2();
+            CalcHashes();
         }
         public Board(SortedSet<int> pos)
         {
             this.pos = pos;
-            if (GetHashCode() == 0)
-                hash = 1;
-            if (n < 100)
-                initState();
+            CalcHashes();
         }
         public void initState()
         {
@@ -97,13 +100,13 @@ namespace Tilt_Game
         #region Tilting Logic
         public Board TiltRight()
         {
-            if (move == "Right")
-                return this;
-            foreach (int i in pos)
-                layout[i / n, i % n] = 'o';
             HashSet<int> targetRows = new HashSet<int>();
+
             foreach (int i in pos)
+            {
+                layout[i / n, i % n] = 'o';
                 targetRows.Add(i / n);
+            }
             var newPos = new SortedSet<int>();
             foreach (int i in targetRows)
             {
@@ -126,13 +129,11 @@ namespace Tilt_Game
             var Result = new Board(newPos);
             Result.parent = this;
             Result.move = "Right";
+            Result.stps = this.stps + 1;
             return Result;
         }
         public Board TiltDown()
         {
-            if (move == "Down")
-                return this;
-
             HashSet<int> targetCols = new HashSet<int>();
             foreach (int i in pos)
             {
@@ -165,12 +166,11 @@ namespace Tilt_Game
             var Result = new Board(newPos);
             Result.parent = this;
             Result.move = "Down";
+            Result.stps = this.stps + 1;
             return Result;
         }
         public Board TiltUp()
         {
-            if (move == "Up")
-                return this;
             HashSet<int> targetCols = new HashSet<int>();
             SortedSet<int> newPos = new SortedSet<int>();
             foreach (int i in pos)
@@ -202,18 +202,18 @@ namespace Tilt_Game
             var Result = new Board(newPos);
             Result.parent = this;
             Result.move = "Up";
+            Result.stps = this.stps + 1;
             return Result;
         }
         public Board TiltLeft()
         {
-            if (move == "Left")
-                return this;
             SortedSet<int> newPos = new SortedSet<int>();
             HashSet<int> targetRows = new HashSet<int>();
             foreach (int i in pos)
+            {
                 targetRows.Add(i / n);
-            foreach (int i in pos)
                 layout[i / n, i % n] = 'o';
+            }
             foreach (int i in targetRows)
             {
                 int cnt = 0;
@@ -239,6 +239,7 @@ namespace Tilt_Game
             var Result = new Board(newPos);
             Result.parent = this;
             Result.move = "Left";
+            Result.stps = this.stps + 1;
             return Result;
         }
         #endregion
@@ -249,44 +250,35 @@ namespace Tilt_Game
         #region Ignore
         public override bool Equals(object? obj)
         {
-            return true;
+            var other = obj as Board;
+            if (hash3 != other.hash3)
+                return false;
+            return hash4 == other.hash4;
+
         }
 
-        bool clcd = false;
+
         public override int GetHashCode()
         {
-            if (!clcd)
-            {
-                foreach (int i in pos)
-                    hash = (hash * coeff + i) % 667333;
-            }
-            clcd = true;
             return hash;
         }
 
-        bool clcd2 = false;
         public int getHash2()
         {
-            if (!clcd2)
-            {
-                foreach (int i in pos)
-                    hash = (hash * coeff2 + i) % 667333;
-            }
-            clcd2 = true;
-            return hash;
+            return hash2;
         }
 
-        public void write()
+
+        void CalcHashes()
         {
-            Console.WriteLine("-------------------------");
-            for (int i = 0; i < n; i++)
-            {
-                Console.WriteLine(" ");
-                for (int j = 0; j < n; j++)
-                {
-                    Console.Write(state[i][j] + " ");
-                }
-            }
+            foreach (int i in pos)
+                hash = (hash * coeff + i) % 667333;
+            foreach (int i in pos)
+                hash2 = (hash2 * coeff2 + i) % 667333;
+            foreach (int i in pos)
+                hash3 = (hash3 * coeff3 + i) % 667333;
+            foreach (int i in pos)
+                hash4 = (hash4 * coeff4 + i) % 667333;
         }
 
         #endregion
@@ -337,14 +329,27 @@ namespace Tilt_Game
             if (IsWinning(current))
                 return Answer(current);
             visited.Add(current);
+            int x = 0;
             while (true)
             {
-                Board[] successors = new Board[4] {
-                current.TiltUp(),
+                Board[] successors;
+                if (current.move == null)
+                    successors = new Board[4] {
                 current.TiltDown(),
-                current.TiltLeft(),
-                current.TiltRight()
+                current.TiltUp(),
+                current.TiltRight(),
+                current.TiltLeft()
                 };
+                else if (current.move == "Up" || current.move == "Down")
+                    successors = new Board[2] {
+                        current.TiltRight(),
+                        current.TiltLeft()
+                    };
+                else
+                    successors = new Board[2] {
+                        current.TiltUp(),
+                        current.TiltDown()
+                    };
 
                 foreach (Board successor in successors)
                     if (!visited.Contains(successor))
@@ -368,8 +373,6 @@ namespace Tilt_Game
 
         public void Write(List<Board> States, string solveState)
         {
-
-
             try
             {
 
@@ -428,10 +431,8 @@ namespace Tilt_Game
             //Check if the current configuration is winning
             if (board.state != null)
                 return board.state[TargetY][TargetX] == 'o';
-            foreach (int i in board.pos)
-                if (i == TargetY * dim + TargetX)
-                    return true;
-            return false;
+            int Target = TargetY * dim + TargetX;
+            return board.pos.Contains(Target);
         }
     }
 }
